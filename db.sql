@@ -1,18 +1,18 @@
 -- Regions Table
 CREATE TABLE IF NOT EXISTS regions (
     id SERIAL PRIMARY KEY,
-    state VARCHAR(100),
-    region VARCHAR(50),
+    state VARCHAR,
+    region VARCHAR,
     UNIQUE(state)
 );
 
 -- Aggregated Transaction
 CREATE TABLE IF NOT EXISTS aggregated_transaction (
     id SERIAL PRIMARY KEY,
-    state VARCHAR(100),
+    state VARCHAR,
     year INT,
     quarter INT,
-    transaction_type VARCHAR(100),
+    transaction_type VARCHAR,
     transaction_count BIGINT,
     transaction_amount NUMERIC(20,2),
     UNIQUE (state, year, quarter, transaction_type)
@@ -21,10 +21,10 @@ CREATE TABLE IF NOT EXISTS aggregated_transaction (
 -- Aggregated Insurance
 CREATE TABLE IF NOT EXISTS aggregated_insurance (
     id SERIAL PRIMARY KEY,
-    state VARCHAR(100),
+    state VARCHAR,
     year INT,
     quarter INT,
-    transaction_type VARCHAR(100),
+    transaction_type VARCHAR,
     transaction_count BIGINT,
     transaction_amount NUMERIC(20,2),
     UNIQUE (state, year, quarter, transaction_type)
@@ -33,10 +33,10 @@ CREATE TABLE IF NOT EXISTS aggregated_insurance (
 -- Aggregated User
 CREATE TABLE IF NOT EXISTS aggregated_user (
     id SERIAL PRIMARY KEY,
-    state VARCHAR(100),
+    state VARCHAR,
     year INT,
     quarter INT,
-    brand VARCHAR(100),
+    brand VARCHAR,
     user_count BIGINT,
     percentage NUMERIC(10,6),
     UNIQUE (state, year, quarter, brand)
@@ -45,10 +45,10 @@ CREATE TABLE IF NOT EXISTS aggregated_user (
 -- Map Transaction
 CREATE TABLE IF NOT EXISTS map_transaction (
     id SERIAL PRIMARY KEY,
-    state VARCHAR(100),
+    state VARCHAR,
     year INT,
     quarter INT,
-    district VARCHAR(150),
+    district VARCHAR,
     count BIGINT,
     amount NUMERIC(20,2),
     UNIQUE (state, year, quarter, district)
@@ -57,10 +57,10 @@ CREATE TABLE IF NOT EXISTS map_transaction (
 -- Map Insurance
 CREATE TABLE IF NOT EXISTS map_insurance (
     id SERIAL PRIMARY KEY,
-    state VARCHAR(100),
+    state VARCHAR,
     year INT,
     quarter INT,
-    district VARCHAR(150),
+    district VARCHAR,
     count BIGINT,
     amount NUMERIC(20,2),
     UNIQUE (state, year, quarter, district)
@@ -69,10 +69,10 @@ CREATE TABLE IF NOT EXISTS map_insurance (
 -- Map User
 CREATE TABLE IF NOT EXISTS map_user (
     id SERIAL PRIMARY KEY,
-    state VARCHAR(100),
+    state VARCHAR,
     year INT,
     quarter INT,
-    district VARCHAR(150),
+    district VARCHAR,
     registered_users BIGINT,
     app_opens BIGINT,
     UNIQUE (state, year, quarter, district)
@@ -81,10 +81,10 @@ CREATE TABLE IF NOT EXISTS map_user (
 -- Top Transaction
 CREATE TABLE IF NOT EXISTS top_transaction (
     id SERIAL PRIMARY KEY,
-    state VARCHAR(100),
+    state VARCHAR,
     year INT,
     quarter INT,
-    district VARCHAR(150),
+    district VARCHAR,
     count BIGINT,
     amount NUMERIC(20,2),
     UNIQUE (state, year, quarter, district)
@@ -93,10 +93,10 @@ CREATE TABLE IF NOT EXISTS top_transaction (
 -- Top Insurance
 CREATE TABLE IF NOT EXISTS top_insurance (
     id SERIAL PRIMARY KEY,
-    state VARCHAR(100),
+    state VARCHAR,
     year INT,
     quarter INT,
-    district VARCHAR(150),
+    district VARCHAR,
     count BIGINT,
     amount NUMERIC(20,2),
     UNIQUE (state, year, quarter, district)
@@ -105,10 +105,11 @@ CREATE TABLE IF NOT EXISTS top_insurance (
 -- Top User
 CREATE TABLE IF NOT EXISTS top_user (
     id SERIAL PRIMARY KEY,
-    state VARCHAR(100),
+    state VARCHAR,
     year INT,
     quarter INT,
-    pincode VARCHAR(20),
+    pincode VARCHAR,
     registered_users BIGINT,
     UNIQUE (state, year, quarter, pincode)
+
 );
